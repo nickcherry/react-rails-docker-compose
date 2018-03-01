@@ -1,8 +1,8 @@
 FROM ruby:2.3
 RUN apt-get update && apt-get install -y -o Dpkg::Options::="--force-confold" netcat libpq-dev imagemagick
-ADD Gemfile /tmp/
-ADD Gemfile.lock /tmp/
-WORKDIR /tmp
+ADD Gemfile ~/
+ADD Gemfile.lock ~/
+WORKDIR ~
 RUN bundle install
 COPY . /home/app/backend
 WORKDIR /home/app/backend
